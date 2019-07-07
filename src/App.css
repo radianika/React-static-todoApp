@@ -18,6 +18,7 @@ body{
   border: none;
   background: none;
   color: lightslategray;
+  outline: none;
   
 }
 .app{
@@ -30,11 +31,35 @@ body{
   margin: 50px auto;
   max-width: 550px;
 }
+
+/* STYLES FOR HEADER */
+
 .title{
   font-size: 100px;
   color: rgba(175, 47, 47, 0.15);
   text-align: center;
 }
+
+.input-wrapper{
+  position: relative;
+  display: flex;
+}
+
+.arrow{
+  position: absolute;
+  left:20px;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  width:30px;
+  height: 30px;
+  color: #e6e6e6;
+  font-size: 22px;
+}
+
+.arrow--dark{
+  color: #4d4d4d;
+} 
+
 .input{
   padding: 16px 16px 16px 60px;
   border: none;
@@ -42,21 +67,23 @@ body{
   box-shadow: inset 0 -2px 1px rgba(0,0,0,0.03);
   min-width: 550px;
   font-size: 24px;
+  outline-color: #eaddd7;
 
 }
 .input[placeholder]{
   font-style: italic;
 }
-.input::after{
-  content: "f";
-}
+
+
+/* STYLES FOR LIST OF TODOITEMS */
+
 .list{
   min-width: 550px;
   background-color: white;
   border: 1px solid #ededed;;
   color: #4d4d4d;
-  
 }
+
 .list__item{
   list-style: none;
   position: relative;
@@ -64,18 +91,24 @@ body{
   word-break: break-all;
   padding: 15px 15px 15px 60px;
   line-height: 1.2;
+  background-image: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23ededed%22%20stroke-width%3D%223%22/%3E%3C/svg%3E');
+	background-repeat: no-repeat;
+	background-position: center left;
+}
+
+.done.list__item {
+  background-image: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23bddad5%22%20stroke-width%3D%223%22/%3E%3Cpath%20fill%3D%22%235dc2af%22%20d%3D%22M72%2025L42%2071%2027%2056l-4%204%2020%2020%2034-52z%22/%3E%3C/svg%3E')
+}
+
+.done {
+  text-decoration: line-through;
+  color: #d9d9d9;
+  text-decoration-color: #d9d9d9;
 }
 .checkbox{
-  position: absolute;
-  top:50%;
-  left:10px;
-  transform: translateY(-50%);
-  border: 1px solid #b1b1b1;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  outline: none;
+  opacity: 0;
 }
+
 .delete-btn{
   position: absolute;
   top:50%;
@@ -87,7 +120,11 @@ body{
 .list__item:hover .delete-btn{
 display: block;
 }
-.nav{
+
+
+/* STYLES FOR FOOTER NAVIGATION */
+
+.navigation{
   font-size: 14px;
   display: flex;
   justify-content: space-between;
@@ -96,17 +133,28 @@ display: block;
   padding: 15px;
   align-items: baseline;
 }
-.nav__btn{
+.navigation__btn{
   padding:7px;
   border: 1px solid rgba(175, 47, 47, 0);
   border-radius: 3px;
 }
-.nav__btn:not(:last-child){
+
+.navigation__btn:not(:last-child){
   margin-right: 10px;
 }
 
-.nav__btn:hover{
-  border: 1px solid rgba(175, 47, 47, 0.15);
-  border-radius: 3px;
+.navigation__btn:hover{
+  border-color: rgba(175, 47, 47, 0.1);
+  ;
+}
+
+.navigation__btn.active{
+  border-color: rgba(175, 47, 47, 0.15);
+}
+
+.list__item--editing{
+  font-size: 24px;
+  width: 100%;
+  padding: 5px;
 }
 
